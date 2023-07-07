@@ -1,0 +1,40 @@
+2023-07-08 00:15:40.948 INFO: Нивото на регистрация е на INFO (INFO, 800)
+2023-07-08 00:15:41.227 WARNING: extended font config - overriding 'filename.Myanmar_Text=mmrtext.ttf' with 'MMRTEXT.TTF'
+2023-07-08 00:15:41.228 WARNING: extended font config - overriding 'filename.Mongolian_Baiti=monbaiti.ttf' with 'MONBAITI.TTF'
+2023-07-08 00:15:41.311 SEVERE: java.lang.ExceptionInInitializerError. Причина: java.lang.reflect.InaccessibleObjectException: Unable to make private static native long[] java.util.prefs.WindowsPreferences.WindowsRegOpenKey(long,byte[],int) accessible: module java.prefs does not "opens java.util.prefs" to unnamed module @1a052a00
+2023-07-08 00:15:41.612 SEVERE: Handled by bug report queue: java.lang.NoClassDefFoundError: Could not initialize class org.openstreetmap.josm.tools.WinRegistry. Причина: java.lang.ExceptionInInitializerError: Exception java.lang.reflect.InaccessibleObjectException: Unable to make private static native long[] java.util.prefs.WindowsPreferences.WindowsRegOpenKey(long,byte[],int) accessible: module java.prefs does not "opens java.util.prefs" to unnamed module @1a052a00 [in thread "main"]
+java.lang.NoClassDefFoundError: Could not initialize class org.openstreetmap.josm.tools.WinRegistry
+        at org.openstreetmap.josm.tools.PlatformHookWindows.isDotNet45Installed(PlatformHookWindows.java:629)
+        at org.openstreetmap.josm.tools.PlatformHookWindows.webRequest(PlatformHookWindows.java:677)
+        at org.openstreetmap.josm.tools.PlatformHookWindows.getX509Certificate(PlatformHookWindows.java:363)
+        at org.openstreetmap.josm.io.CertificateAmendment.addMissingCertificates(CertificateAmendment.java:231)
+        at org.openstreetmap.josm.gui.MainApplication.mainJOSM(MainApplication.java:884)
+        at org.openstreetmap.josm.gui.MainApplication$3.processArguments(MainApplication.java:277)
+        at org.openstreetmap.josm.gui.MainApplication.main(MainApplication.java:742)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.reflect.InaccessibleObjectException: Unable to make private static native long[] java.util.prefs.WindowsPreferences.WindowsRegOpenKey(long,byte[],int) accessible: module java.prefs does not "opens java.util.prefs" to unnamed module @1a052a00 [in thread "main"]
+        at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+        at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+        at java.base/java.lang.reflect.Method.checkCanSetAccessible(Method.java:199)
+        at java.base/java.lang.reflect.Method.setAccessible(Method.java:193)
+        at org.openstreetmap.josm.tools.ReflectionUtils.lambda$setObjectsAccessible$0(ReflectionUtils.java:32)
+        at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+        at org.openstreetmap.josm.tools.ReflectionUtils.setObjectsAccessible(ReflectionUtils.java:29)
+        at org.openstreetmap.josm.tools.WinRegistry.<clinit>(WinRegistry.java:65)
+        at org.openstreetmap.josm.tools.PlatformHookWindows.getCurrentBuild(PlatformHookWindows.java:300)
+        at org.openstreetmap.josm.gui.MainApplication.applyWorkarounds(MainApplication.java:1073)
+        at org.openstreetmap.josm.gui.MainApplication.mainJOSM(MainApplication.java:844)
+        ... 2 more
+
+2023-07-08 00:15:41.825 SEVERE: Unable to get Windows build number: java.lang.NoClassDefFoundError: Could not initialize class org.openstreetmap.josm.tools.WinRegistry. Причина: java.lang.ExceptionInInitializerError: Exception java.lang.reflect.InaccessibleObjectException: Unable to make private static native long[] java.util.prefs.WindowsPreferences.WindowsRegOpenKey(long,byte[],int) accessible: module java.prefs does not "opens java.util.prefs" to unnamed module @1a052a00 [in thread "main"]
+2023-07-08 00:15:41.952 SEVERE: java.lang.IllegalStateException: HTTP factory has not been set
+java.lang.IllegalStateException: HTTP factory has not been set
+        at org.openstreetmap.josm.tools.HttpClient.create(HttpClient.java:548)
+        at org.openstreetmap.josm.tools.HttpClient.create(HttpClient.java:536)
+        at org.openstreetmap.josm.io.CachedFile.checkLocal(CachedFile.java:491)
+        at org.openstreetmap.josm.io.CachedFile.getFile(CachedFile.java:284)
+        at org.openstreetmap.josm.io.CachedFile.getInputStream(CachedFile.java:227)
+        at org.openstreetmap.josm.io.CachedFile.getByteContent(CachedFile.java:245)
+        at org.openstreetmap.josm.gui.bugreport.JosmUpdatePanel.getTestedVersion(JosmUpdatePanel.java:70)
+        at org.openstreetmap.josm.gui.bugreport.JosmUpdatePanel.readCurrentVersion(JosmUpdatePanel.java:53)
+        at java.base/java.lang.Thread.run(Thread.java:833)
+
